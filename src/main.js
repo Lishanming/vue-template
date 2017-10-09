@@ -1,0 +1,22 @@
+import Vue from 'vue'
+import App from './App.vue'
+import vueRouter from 'vue-router'
+//import vueResource from 'vue-resource'
+
+import axios from './config/axios/index'
+import routes from './router.config'
+
+Vue.prototype.$http = axios;
+
+Vue.use(vueRouter);
+//Vue.use(vueResource);
+
+const router = new vueRouter({
+  routes
+});
+
+new Vue({
+  el: '#app',
+  router,
+  render: h => h(App)
+})
