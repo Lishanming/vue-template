@@ -2,24 +2,23 @@
 /*
  * create by lishanming_ on 2017年10月10日 
  * */
-
-import Vue form 'vue'
-import Vuex form 'vuex'
+import Vue from 'vue'
+import Vuex from 'vuex'
 
 //global states
-import states from './states'
+import state from './states'
 
 //global actions
 import actions from './actions'
 
 //global motations
-import motations from './mutations'
+import mutations from './mutations'
 
 //bind
 Vue.use(Vuex);
 
-export default new Vuex.Stroe({
-	states,
+export default new Vuex.Store({
+	state,
 	actions,
 	mutations,
 	modules:{

@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="login-wrap">
     <div class="login-container">
-      <input type="text" v-model="user.account" >
+      <input type="text"  v-model="user.account" >
       <input type="password" v-model="user.password" >
       <button type="button" @click="login">登录</button>
     </div>
@@ -24,7 +24,8 @@ export default {
         if (res.data.error) {
           alert(res.data.error.message);
         } else {
-          this.$router.push('/console');
+        	this.$store.commit('USER_LOGIN',res);
+          this.$router.push('/app');
         }
       })
     }
