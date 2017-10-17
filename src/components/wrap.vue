@@ -1,7 +1,7 @@
 <template>
   <div class="">
   	<app-header></app-header>
-  	<app-menu></app-menu>
+  	<app-menu :menuList="menuList"></app-menu>
   	<app-main></app-main>
   </div>
 </template>
@@ -13,6 +13,11 @@
 	import AppMain from './layout/main.vue'
 	
 export default {
+	data(){
+		return {
+			menuList:['1','2','3']
+		}
+	},
 	components:{
 		AppHeader,
 		AppMenu,

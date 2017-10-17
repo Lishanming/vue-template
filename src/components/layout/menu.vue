@@ -1,6 +1,7 @@
 
 <template>
 	<div class="menu-wrap">
+		{{menuList}}
 		<router-link to='/home'>home</router-link>
 	</div>
 </template>
@@ -11,6 +12,9 @@
 			return {
 				
 			};
+		},
+		props:{
+			menuList:Array
 		},
 		methods: {
 			xxx() {

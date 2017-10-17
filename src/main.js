@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import vueRouter from 'vue-router'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+//import 'font-awesome/css/font-awesome.min.css'
+
 //import vueResource from 'vue-resource'
 
 import store from './store/index'
@@ -10,6 +14,7 @@ import routes from './router.config'
 
 Vue.prototype.$http = axios;
 
+Vue.use(ElementUI);
 Vue.use(vueRouter);
 //Vue.use(vueResource);
 
