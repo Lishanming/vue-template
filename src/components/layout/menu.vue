@@ -2,6 +2,7 @@
 <template>
 	<div class="menu-wrap">
 		{{menuList}}
+		{{message}}
 		<router-link to='/home'>home</router-link>
 	</div>
 </template>
@@ -10,7 +11,7 @@
 	export default {
 		data() {
 			return {
-				
+				message:'6666666666666666666666'
 			};
 		},
 		props:{
@@ -20,6 +21,10 @@
 			xxx() {
 				
 			}
+		},
+		mounted(){
+			this.message = this.$store.state.username;
+			console.log(this.$store.state.username);
 		}
 	}
 </script>
