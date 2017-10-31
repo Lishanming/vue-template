@@ -1,7 +1,7 @@
 
 <template>
 	<div class="heihei">
-		<div>666666</div>
+		<div>{{message}}</div>
 	</div>
 </template>
 
@@ -9,7 +9,8 @@
 	export default {
 		data() {
 			return {
-				
+				message:'',
+				type:''
 			};
 		},
 		methods: {

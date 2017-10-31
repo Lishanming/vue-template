@@ -3,6 +3,7 @@
 	<div class="menu-wrap">
 		{{menuList}}
 		{{message}}
+		find and do
 		<router-link to='/home'>home</router-link>
 	</div>
 </template>

@@ -1,0 +1,12 @@
+
+
+.fun-button {
+	border: none;
+	margin: 0;
+	padding: 0;
+	color: #FFFFFF;
+	border-radius: 0px;
+}
+.fun-button-loading {
+	width: 2em;
+}
