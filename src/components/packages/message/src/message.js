@@ -5,17 +5,21 @@ let instance;
 let zIndex = 999;
 
 //配置VUE默认服务，其参数是function
-var Message = function(type,message){
+var Message = function(options){
 	
 	//console.log(type+'  '+message);
 	
 	if (Vue.prototype.$isServer) return;
 	
+	options = options || {};
+  	if (typeof options === 'string') {
+    	options = {
+      		message: options
+    	};
+  	}
+	
 	instance = new MessageConstructor({
-		data: {
-			'type':type,
-			'message':message
-		}
+		data: options
 	});
 	//console.log(instance);
 	
@@ -33,11 +37,23 @@ var Message = function(type,message){
 	
 	
 };
-var messageBox = {};
+//var messageBox = {};
+//
+//messageBox.info = message => Message('info',message);
+//messageBox.warn = message => Message('warn',message);
 
-messageBox.info = message => Message('info',message);
-messageBox.warn = message => Message('warn',message);
+['success', 'warning', 'info', 'error'].forEach(type => {
+  Message[type] = options => {
+    if (typeof options === 'string') {
+      options = {
+        message: options
+      };
+    }
+    options.type = type;
+    return Message(options);
+  };
+});
 
 
 
-export default messageBox;
+export default Message;

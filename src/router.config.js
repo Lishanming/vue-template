@@ -1,6 +1,7 @@
 import Login from './components/login.vue';
 import Wrap from './components/wrap.vue';
 import Home from './views/home/home.vue'
+import Test from './views/test/test.vue'
 
 export default [{
 		path: '/',
@@ -21,5 +22,9 @@ export default [{
 				component:Home
 			}
 		]
+	},
+	{
+		path: '/test',
+		component: Test
 	}
 ];

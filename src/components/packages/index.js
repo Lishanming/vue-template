@@ -5,9 +5,11 @@
 
 import funButton from './button/index'
 import Message from './message/index'
+import funRoller from './roller/index'
 
 const components = [
-	funButton
+	funButton,
+	funRoller
 ];
 
 const install = function(Vue) {
