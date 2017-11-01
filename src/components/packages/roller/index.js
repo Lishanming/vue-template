@@ -5,5 +5,8 @@
 
 import funRoller from './src/roller.vue'
 
+funRoller.install = function(Vue) {
+	Vue.component(funRoller.name, funRoller);
+};
 
 export default funRoller;

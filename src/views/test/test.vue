@@ -1,10 +1,10 @@
 
 <template>
 	<div class="">
-		<input v-model="temp"  />
-		<button @click="test">测试</button>
+		<h1>{{temp}}%</h1>
+		<button @click="test">开始产生随机数(2s频率)</button>
 		<h1>
-			<fun-Roller :number = "rollerNumber"></fun-Roller>
+			<fun-Roller :number = "temp"></fun-Roller>%
 		</h1>
 	</div>
 </template>
@@ -13,14 +13,15 @@
 	export default {
 		data() {
 			return {
-				temp:'',
-				rollerNumber:0
+				temp:'0'
 			};
 		},
 		methods: {
 			test() {
-				this.rollerNumber = this.temp;
-				console.log(this.rollerNumber);
+				let _this = this;
+				setInterval(function(){
+					_this.temp = parseInt(Math.random()*(100+1),10);
+				},2000);
 			}
 		}
 	}

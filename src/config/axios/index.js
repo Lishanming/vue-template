@@ -1,5 +1,5 @@
 import axios from 'axios'
-import qs from 'qs'
+//import qs from 'qs'
 	
 	console.log(axios);
 	axios.defaults.timeout = 5000; //响应时间
