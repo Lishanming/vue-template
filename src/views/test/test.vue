@@ -1,11 +1,14 @@
 
 <template>
 	<div class="">
-		<h1>{{temp}}%</h1>
+		<!--<h1>{{temp}}%</h1>
 		<button @click="test">开始产生随机数(2s频率)</button>
 		<h1>
 			<fun-Roller :number = "temp"></fun-Roller>%
-		</h1>
+		</h1>-->
+		<div class="test-wrap">
+			<funInput></funInput>
+		</div>
 	</div>
 </template>
 
@@ -28,5 +31,10 @@
 </script>
 
 <style>
-
+	.test-wrap {
+		margin: 100px;
+		height: 300px;
+		width: 300px;
+		background-color: #FFFFFF;
+	}
 </style>

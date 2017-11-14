@@ -6,10 +6,12 @@
 import funButton from './button/index'
 import Message from './message/index'
 import funRoller from './roller/index'
+import funInput from './input/index'
 
 const components = [
 	funButton,
-	funRoller
+	funRoller,
+	funInput
 ];
 
 const install = function(Vue) {
