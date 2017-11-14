@@ -7,7 +7,9 @@
 			<fun-Roller :number = "temp"></fun-Roller>%
 		</h1>-->
 		<div class="test-wrap">
-			<funInput></funInput>
+			<funInput v-model="username"></funInput>
+			<button @click="test2">打印</button>
+			<button @click="test3">赋值</button>
 		</div>
 	</div>
 </template>
@@ -16,7 +18,8 @@
 	export default {
 		data() {
 			return {
-				temp:'0'
+				temp:'0',
+				username:'hello world'
 			};
 		},
 		methods: {
@@ -25,6 +28,12 @@
 				setInterval(function(){
 					_this.temp = parseInt(Math.random()*(100+1),10);
 				},2000);
+			},
+			test2() {
+				console.log(this.username);
+			},
+			test3() {
+				this.username = new Date().getTime();
 			}
 		}
 	}
