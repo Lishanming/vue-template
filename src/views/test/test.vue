@@ -7,10 +7,15 @@
 			<fun-Roller :number = "temp"></fun-Roller>%
 		</h1>-->
 		<div class="test-wrap">
-			<funInput v-model="username"></funInput>
-			<button @click="test2">打印</button>
-			<button @click="test3">赋值</button>
+			<funInput v-model="username" title="自定义标题"></funInput>
+			<funInput v-model="username" title="自定义标题"></funInput>
+			<funInput v-model="username" title="自定义标题"></funInput>
+			<funInput v-model="username" title="自定义标题"></funInput>
+			<funInput v-model="username" title="自定义标题"></funInput>
+			
 		</div>
+		<button @click="test2">打印</button>
+		<button @click="test3">赋值</button>
 	</div>
 </template>
 
@@ -19,7 +24,7 @@
 		data() {
 			return {
 				temp:'0',
-				username:'hello world'
+				username:''
 			};
 		},
 		methods: {
@@ -45,5 +50,9 @@
 		height: 300px;
 		width: 300px;
 		background-color: #FFFFFF;
+	}
+	input:disabled {
+		background-color: inherit;
+		color: rgba(0, 0, 0, 0.3);;
 	}
 </style>

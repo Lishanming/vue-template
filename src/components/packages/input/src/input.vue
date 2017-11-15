@@ -1,46 +1,57 @@
 
 <template>
-  <div class="funInput-wrap">
-      <label class="funInput-label" :class="{'funInput-label-active':inputActive}" :for="inputId">提示信息</label>
-      <input :id="inputId" v-model="inputValue" @input="handleInput" @focus="onFocus" @blur="onBlur" class="funInput-text">
-      <hr aria-hidden="true" class="funInput-hr-default">
-      <hr aria-hidden="true" class="funInput-hr" :class="{'funInput-hr-active':inputActive}">
-      <div class="funInput-message" v-show="isError">
-      	必输项
+  <div class="epInput-wrap">
+      <label class="epInput-label" :class="{'epInput-label-active':isFocused||notEmpty}" :for="inputId">{{title}}</label>
+      <input :id="inputId" class="epInput-text" v-model="inputValue" 
+      	@input="handleInput"
+      	@focus="onFocus"
+      	:disabled="disabled" 
+      	@blur="onBlur">
+      <hr aria-hidden="true" class="epInput-hr-default">
+      <hr aria-hidden="true" class="epInput-hr" :class="{'epInput-hr-active':isFocused}">
+      <div class="epInput-message" v-show="isError">
+      	{{message}}
       </div>
   </div>
 </template>
 
 <script>
 	import './input.css'
-	//let inputId = 0;
   export default {
-		name:'funInput',
+		name:'epInput',
 		data(){
 			return {
-				inputActive:false,
+				isFocused:false,
 				isError:false,
 				inputValue:'',
-				inputId:new Date().getTime()
+				inputId:new Date().getTime(),
+				message:''
 			}
 		},
 		props:{
-			value: [String, Number]
+			value: [String, Number],
+			title:String,
+			disabled:{
+				type:Boolean,
+				default:false
+			}
+		},
+		computed:{
+			notEmpty(){
+				return this.value != undefined && this.value.length > 0;
+			}
 		},
 		watch: {
       'value'(newVal, oldVal) {
-      	console.log('组件内部值监控器触发了！！！');
         this.setCurrentValue(newVal);
       }
     },
 		methods: {
 			onFocus(event) {
-				this.inputActive = true;
+				this.isFocused = true;
 			},
 			onBlur(event) {
-				if(this.inputValue.length == 0){
-					this.inputActive = false;
-				}
+					this.isFocused = false;
 			},
 			handleInput(event) {
         const value = event.target.value;
@@ -50,10 +61,8 @@
       	this.inputValue = val;
       }
 		},mounted(){
-			//this.inputId = new Date().getTime();
-			if(this.value != undefined && this.value.length > 0){
+			if(this.notEmpty){
 				this.setCurrentValue(this.value);
-				this.inputActive = true;
 			}
 		}
 	}

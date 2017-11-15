@@ -1,11 +1,15 @@
 <template>
 	<div class="login-wrap">
 		<div class="login-container">
-			<i class="iconfont icon-yonghu"></i>
+			<!--<i class="iconfont icon-yonghu"></i>
 			<input v-model="user.account" />
 			<input v-model="user.password" />
 			<button @click="login">登录</button>
-			<fun-button class="login-btn"  @click="login" :loading="loading">登录</fun-button>
+			<fun-button class="login-btn"  @click="login" :loading="loading">登录</fun-button>-->
+			<ep-input v-model="user.account" title="用户"></ep-input>
+			<ep-input v-model="user.password" title="密码"></ep-input>
+			
+			<ep-button class="login-btn"  @click="login" :loading="loading">登录</ep-button>
 		</div>
 	</div>
 </template>
@@ -24,13 +28,14 @@
 		methods: {
 			login() {
 				this.loading = true;
-				this.$http.post('http://edb2.hand-china.com:8088/project-mg/login', this.user).then((res) => {
-					if(res.data.error) {
+				this.$http.post('http://edb2.hand-china.com:8088/project-mg/login', this.user).then(({data}) => {
+					console.log(data);
+					if(data.error) {
 						this.loading = false;
-						this.$message.info('我是提示信息');
+						this.$message.info(data.error.message);
 					} else {
 						this.loading = false;
-						this.$store.commit('USER_LOGIN', res.data.result.data.realname);
+						this.$store.commit('USER_LOGIN', data.result.data.realname);
 						this.$router.push('/app');
 					}
 				});
@@ -49,7 +54,6 @@
     position: absolute;
     width: 400px;
     height: 400px;
-    background-color: rgba(0, 0, 0, 0.5);
     left: 50%;
     top: 50%;
     margin-left: -200px;

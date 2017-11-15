@@ -14,7 +14,7 @@
 <script>
 	import './button.css'
 	export default {
-		name:'funButton',
+		name:'epButton',
 		props:{
 			disabled:Boolean,
 			actionIcon:String,
