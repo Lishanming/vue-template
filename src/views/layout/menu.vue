@@ -34,9 +34,9 @@
 	.menu-wrap {
 		position: fixed;
 		width: 180px;
-		top: 40px;
+		top: 80px;
 		left: 0px;
 		bottom: 0px;
-		background-color: red;
+		background-color: yellowgreen;
 	}
 </style>

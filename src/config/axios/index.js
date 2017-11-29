@@ -1,7 +1,7 @@
 import axios from 'axios'
 //import qs from 'qs'
 
-console.log(axios);
+//console.log(axios);
 axios.defaults.timeout = 5000; //响应时间
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'; //配置请求头
 

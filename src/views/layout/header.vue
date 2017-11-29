@@ -1,7 +1,7 @@
 
 <template>
 	<div class="header-wrap">
-		我是头部
+		<img class="header-logo" src="../../assets/images/logo.jpg" />
 	</div>
 </template>
 
@@ -23,7 +23,11 @@ export default {
 	.header-wrap {
 		position: fixed;
 		width: 100%;
-		height: 40px;
-		background-color: rgba(0,0,0,0.3);
+		height: 80px;
+		/*background-color: rgba(0,0,0,0.3);*/
+		border-bottom: 1px solid #d5d5d5;
+	}
+	.header-logo {
+		height: 100%;
 	}
 </style>

@@ -8,9 +8,9 @@
 
 <script>
 	//import {Header,Menu,Main} from './layout/'
-	import AppHeader from './layout/header.vue'
-	import AppMenu from './layout/menu.vue'
-	import AppMain from './layout/main.vue'
+	import AppHeader from './header.vue'
+	import AppMenu from './menu.vue'
+	import AppMain from './main.vue'
 	
 export default {
 	data(){

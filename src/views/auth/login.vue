@@ -15,6 +15,7 @@
 </template>
 
 <script>
+	let Base64 = require('js-base64').Base64;
 	export default {
 		data() {
 			return {
@@ -28,14 +29,14 @@
 		methods: {
 			login() {
 				this.loading = true;
-				this.$http.post('http://edb2.hand-china.com:8088/project-mg/login', this.user).then(({data}) => {
-					console.log(data);
+				this.$http.post('http://edb2.hand-china.com:8088/project-mg/login',{}, {headers: {'Authorization':'Basic '+Base64.encode(this.user.account+':'+this.user.password) }}).then(({data}) => {
 					if(data.error) {
 						this.loading = false;
 						this.$message.info(data.error.message);
 					} else {
 						this.loading = false;
-						this.$store.commit('USER_LOGIN', data.result.data.realname);
+						this.$store.commit('USER_LOGIN', data.data.user_name);
+						//console.log(data.data);
 						this.$router.push('/app');
 					}
 				});

@@ -1,5 +1,5 @@
-import Login from './components/login.vue';
-import Wrap from './components/wrap.vue';
+import Login from './views/auth/login.vue';
+import Wrap from './views/layout/wrap.vue';
 import Home from './views/home/home.vue'
 import Test from './views/test/test.vue'
 

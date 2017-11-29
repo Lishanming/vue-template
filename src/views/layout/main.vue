@@ -22,7 +22,7 @@
 
 <style>
 	.main-wrap {
-		padding-top: 40px;
+		padding-top: 80px;
 		margin-left: 180px;
 	}
 </style>
