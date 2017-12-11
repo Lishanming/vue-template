@@ -28,18 +28,22 @@
 		},
 		methods: {
 			login() {
-				this.loading = true;
-				this.$http.post('http://edb2.hand-china.com:8088/project-mg/login',{}, {headers: {'Authorization':'Basic '+Base64.encode(this.user.account+':'+this.user.password) }}).then(({data}) => {
-					if(data.error) {
-						this.loading = false;
-						this.$message.info(data.error.message);
-					} else {
-						this.loading = false;
-						this.$store.commit('USER_LOGIN', data.data.user_name);
-						//console.log(data.data);
-						this.$router.push('/app');
-					}
-				});
+				this.$http.get('http://localhost:3000/user',{params: {account:this.user.account,password:this.user.password}}).then(({data})=>{
+					console.log(data)
+				})
+				
+//				this.loading = true;
+//				this.$http.post('http://edb2.hand-china.com:8088/project-mg/login',{}, {headers: {'Authorization':'Basic '+Base64.encode(this.user.account+':'+this.user.password) }}).then(({data}) => {
+//					if(data.error) {
+//						this.loading = false;
+//						this.$message.info(data.error.message);
+//					} else {
+//						this.loading = false;
+//						this.$store.commit('USER_LOGIN', data.data.user_name);
+//						//console.log(data.data);
+//						this.$router.push('/app');
+//					}
+//				});
 			}
 		}
 	}

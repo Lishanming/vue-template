@@ -1,9 +1,8 @@
 
 <template>
-	<div class="main-wrap">
-		<keep-alive>
-			<router-view></router-view>
-		</keep-alive>
+	<div class="">
+		<h1>home2</h1>
+		<input placeholder="123" />
 	</div>
 </template>
 
@@ -23,8 +22,5 @@
 </script>
 
 <style>
-	.main-wrap {
-		padding-top: 80px;
-		margin-left: 180px;
-	}
+
 </style>
