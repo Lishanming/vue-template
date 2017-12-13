@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import vueRouter from 'vue-router'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
-import 'font-awesome/css/font-awesome.min.css'
+//import ElementUI from 'element-ui'
+//import 'element-ui/lib/theme-default/index.css'
+//import 'font-awesome/css/font-awesome.min.css'
 
 //import vueResource from 'vue-resource'
 
@@ -14,13 +14,13 @@ import routes from './router.config'
 
 //import message from './components/message/index'
 
-import funUI from './components/packages/index'
-Vue.use(funUI);
+import EpUI from './components/packages/index'
+Vue.use(EpUI);
 
 //Vue.prototype.$message = message;
 Vue.prototype.$http = axios;
 
-Vue.use(ElementUI);
+//Vue.use(ElementUI);
 Vue.use(vueRouter);
 //Vue.use(vueResource);
 

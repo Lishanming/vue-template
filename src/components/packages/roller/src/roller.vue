@@ -7,7 +7,7 @@
 
 <script>
 	export default {
-		name:'funRoller',
+		name:'epRoller',
 		data(){
 			return {
 				rollerNumber:[],

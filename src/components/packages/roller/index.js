@@ -3,10 +3,10 @@
  * email 674548322@qq.com
  */
 
-import funRoller from './src/roller.vue'
+import epRoller from './src/roller.vue'
 
-funRoller.install = function(Vue) {
-	Vue.component(funRoller.name, funRoller);
+epRoller.install = function(Vue) {
+	Vue.component(epRoller.name, epRoller);
 };
 
-export default funRoller;
+export default epRoller;

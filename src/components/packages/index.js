@@ -4,14 +4,17 @@
  */
 
 import funButton from './button/index'
+import epEchart from './echart/index'
 import Message from './message/index'
-import funRoller from './roller/index'
-import funInput from './input/index'
+import epRoller from './roller/index'
+import epInput from './input/index'
+
 
 const components = [
 	funButton,
-	funRoller,
-	funInput
+	epEchart,
+	epRoller,
+	epInput
 ];
 
 const install = function(Vue) {
