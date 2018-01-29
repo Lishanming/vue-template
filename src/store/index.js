@@ -14,6 +14,8 @@ import actions from './actions'
 //global motations
 import mutations from './mutations'
 
+import * as getters from './getters'
+
 //bind
 Vue.use(Vuex);
 
@@ -21,6 +23,7 @@ export default new Vuex.Store({
 	state,
 	actions,
 	mutations,
+	getters,
 	modules:{
 		
 	}

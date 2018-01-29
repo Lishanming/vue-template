@@ -3,11 +3,11 @@
 	<div class="">
 		
 		
-		<!--<h1>{{temp}}%</h1>
+		<h1>{{temp}}%</h1>
 		<button @click="test">开始产生随机数(2s频率)</button>
 		<h1>
-			<fun-Roller :number = "temp"></fun-Roller>%
-		</h1>-->
+			<ep-roller :number = "temp"></ep-roller>%
+		</h1>
 		
 		<!--<div class="test-wrap">
 			<epInput v-model="username" title="自定义标题"></epInput>
@@ -23,7 +23,7 @@
 		<!--<ep-echart :config="echartConfig" :option="echartData" style="height: 600px;"></ep-echart>-->
 		
 		<!--message封装-->
-		<ep-button class="login-btn"  @click="message">测试message</ep-button>
+		<!--<ep-button class="login-btn"  @click="message">测试message</ep-button>-->
 		
 		
 		

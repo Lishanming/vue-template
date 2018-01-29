@@ -2,6 +2,10 @@
 <template>
 	<div class="header-wrap">
 		<img class="header-logo" src="../../assets/images/logo.jpg" />
+		<el-radio-group v-model="isCollapse" @change="change" style="margin-bottom: 20px;">
+		  	<el-radio-button :label="false">展开</el-radio-button>
+		  	<el-radio-button :label="true">收起</el-radio-button>
+		</el-radio-group>
 	</div>
 </template>
 
@@ -9,11 +13,13 @@
 export default {
   data(){
     return {
-    	
-    };
+    	isCollapse:false
+    }
   },
   methods:{
-  	
+  	change(){
+  		this.$store.commit('SIDEBAR_COLLAPSE', this.isCollapse);
+  	}
   }
 
 }

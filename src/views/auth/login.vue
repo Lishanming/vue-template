@@ -1,15 +1,12 @@
 <template>
 	<div class="login-wrap">
 		<div class="login-container">
-			<!--<i class="iconfont icon-yonghu"></i>
-			<input v-model="user.account" />
-			<input v-model="user.password" />
-			<button @click="login">登录</button>
-			<fun-button class="login-btn"  @click="login" :loading="loading">登录</fun-button>-->
-			<ep-input v-model="user.account" title="用户"></ep-input>
-			<ep-input v-model="user.password" title="密码"></ep-input>
 			
-			<ep-button class="login-btn"  @click="login" :loading="loading">登录</ep-button>
+			<el-input v-model="user.account" placeholder="用户"></el-input>
+			<el-input v-model="user.password" placeholder="密码"></el-input>
+			
+			<el-button type="primary" class="login-btn"  @click="login">登录</el-button>
+			
 		</div>
 	</div>
 </template>
@@ -20,30 +17,24 @@
 		data() {
 			return {
 				user: {
-					account: 'shanming.li',
-					password: '123456'
+					account: 'lsm',
+					password: 'lsm'
 				},
 				loading:false
 			};
 		},
 		methods: {
 			login() {
-				this.$http.get('http://localhost:3000/user',{params: {account:this.user.account,password:this.user.password}}).then(({data})=>{
-					console.log(data)
+				this.$http.get('/login',{params: {account:this.user.account,password:this.user.password}}).then(({data})=>{
+					if(data.error) {
+						this.$message.info(data.error.message);
+					} else {
+						this.$store.commit('USER_LOGIN', data.data.user_name);
+						this.$router.push('/home');
+					}
 				})
 				
-//				this.loading = true;
-//				this.$http.post('http://edb2.hand-china.com:8088/project-mg/login',{}, {headers: {'Authorization':'Basic '+Base64.encode(this.user.account+':'+this.user.password) }}).then(({data}) => {
-//					if(data.error) {
-//						this.loading = false;
-//						this.$message.info(data.error.message);
-//					} else {
-//						this.loading = false;
-//						this.$store.commit('USER_LOGIN', data.data.user_name);
-//						//console.log(data.data);
-//						this.$router.push('/app');
-//					}
-//				});
+//				this.$http.post('/login',{}, {headers: {'Authorization':'Basic '+Base64.encode(this.user.account+':'+this.user.password) }}).then(({data}) => {});
 			}
 		}
 	}

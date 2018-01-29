@@ -24,6 +24,9 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
+                query:{
+			      presets:['es2015']
+			    },
                 exclude: /node_modules/
             },
             {
@@ -42,7 +45,8 @@ module.exports = {
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
-        }
+        },
+        extensions:[".js",".vue"]
     },
     devServer: {
         historyApiFallback: true,

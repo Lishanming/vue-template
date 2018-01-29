@@ -32,20 +32,23 @@ app.get('/', function (req, res) {
 	res.sendFile('index.html')
 });
 
-app.get('/user',function(req,res){
+app.get('/login',function(req,res){
 	//console.log(req.query)
 	
 	connection.query("select * from account where account = '" + req.query.account +"'",function(err,rows,fields){
 			if(rows.length == 0){
 				res.send({
 					error:{
-						message:'鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒'
+						message:'密码错误'
 					}
 				})
 			} else if(Base64.encode(req.query.password) == rows[0].password) {
 				res.send({
 					success:'true',
-					message:'鐧诲綍鎴愬姛'
+					data:{
+						user:req.query.account
+					},
+					message:'登录成功'
 				})
 			}
 	})
@@ -53,7 +56,7 @@ app.get('/user',function(req,res){
 	
 })
 
-var server = app.listen(80, function () {
+var server = app.listen(3014, function () {
 	
   var host = server.address().address;
   var port = server.address().port;

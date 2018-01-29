@@ -1,6 +1,5 @@
-export Header from './header'
+export {default as Navbar} from './Navbar'
 
-export Menu from './menu'
+export {default as Sidebar} from './Sidebar'
 
-export Main from './main'
-
+export {default as AppMain} from './AppMain'
