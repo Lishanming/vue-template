@@ -15,9 +15,12 @@ export default new VueRouter({
 			component:require('../../views/auth/login.vue')
 		},
 		{
-			name:'App',
+			name:'Home',
 			path:'/home',
-			component:require('../../views/home/home.vue')
+			component:require('../../views/home/home.vue'),
+			children:[
+				{path:'/home/user',component:require('../../views/user/user.vue')}
+			]
 		},
 		{
 			path:'/',
